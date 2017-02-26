@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+/**
+ * Description 按钮类
+ * Created  2016/10/10.
+ */
+
+//按钮基类样式
+@mixin button-base($lineHeight:3.9026234735863943rem, $fontSize:1.3008744911954646rem){
+	@include inline-block; line-height:$lineHeight;  @include border-radius(0.30353738127894175rem); text-align: center; font-size: $fontSize;
+	border: 1px solid transparent;
+}
+
+.u-btn{@include button-base();
+	//size small smaller smallest large larger largest
+    &.btn-sml{padding-left:1.0406995929563718rem; padding-right: 1.0406995929563718rem; height: 2.601748982390929rem; line-height: 2.601748982390929rem;
+		font-size: 1.1274245590360694rem;}
+    &.btn-lg{display: block;}
+
+	//color
+	$btnBlueBgColor:#3A9FFC;
+	$btnBlueColor:#fff;
+
+	$btnGrayBgColor:#D1D1D1;
+	$btnGrayColor:#fff;
+
+	$btnSingleBlueBgColor:#fff;
+	$btnSingleBlueColor:$blue-light;
+
+	&.btn-blue{background-color: $btnBlueBgColor; color: $btnBlueColor !important; border-color:$btnBlueBgColor;}
+	&.btn-gray{background-color:$btnGrayBgColor; color: $btnGrayColor !important; border-color:$btnGrayBgColor;}
+
+	&.btn-single-blue{background-color:$btnSingleBlueBgColor; border-color:$btnSingleBlueColor; color: $btnSingleBlueColor !important;}
+}
+

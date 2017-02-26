@@ -1,0 +1,16 @@
+<div class="modal image-modal transparent" style="background:#fff!important">
+  <div class="bar bar-positive bar-blue-dark has-back-button show-picture">
+    <a href="javascript:;" class="header-back-button inline" ng-click="closeModal()">
+      关闭
+    </a>
+    <h1 class="title">图片预览</h1>
+    <button ng-if="hasDelete==1" class="button" index="{{currentIndex}}" ng-click="delete()"><i class="font18 ion-trash-a"></i></button>
+  </div>
+  <ion-slide-box delegate-handle="slide-image" on-slide-changed="slideChanged(index)" show-pager="true" active-slide="activeSlide">
+    <ion-slide ng-repeat="image in images">
+      <div class="images-show-big t-center" ng-click="initIndex({{$index}})">
+        <img ng-src="{{image}}" alt="" class="upimages">
+      </div>
+    </ion-slide>
+  </ion-slide-box>
+</div>

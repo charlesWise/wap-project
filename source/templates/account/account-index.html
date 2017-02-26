@@ -1,0 +1,89 @@
+<ion-view hide-nav-bar="true" class="has-header-view">
+	<div class="header header-light header-common">
+		<a href="javascript:void(0);" onClick="javascript:history.go(-1);" class="header-icon-1" >
+			<i class="fa fa-angle-left"></i>
+		</a>
+		<div class="header-logo">用户中心</div>
+	</div>
+	<ion-content>
+		<div id="page-content" class="account-center-content">
+		   <div class="wrapper"> 
+		    <div id="page-content-scroll"> 
+		     <div class="content-fullscreen no-bottom"> 
+		      <div class="page-profile"> 
+		       <a href="javascript:void(0)" class="page-profile-header"> 
+		        <div href="javascript:void(0)" title="Profile Image!"> 
+		         <img src="{{userInfo.avatar}}" class="" alt="img" /> 
+		        </div> <h3>{{userInfo.user.realName}} <small>ID:{{userInfo.user.userId}}</small></h3> 
+		        <div>
+		         <em>手机:{{userInfo.user.mobile}}</em><br />
+		         <!-- <em>积分:10000000</em>
+		         <em>等级:常胜将军</em> 
+		         <br />  -->
+		         <em ng-click="goUserSetting()">账户设置</em>
+		        </div> 
+		        <div class="overlay bg-black user-info">
+		        </div> </a> 
+		      </div> 
+		     </div> 
+		     <div class="half-bottom" style="background: rgba(255,255,255,.2); padding:10px 0px;"> 
+		      <div class="content half-bottom"> 
+		       <table class="small-text color-white" width="100%" border="0" cellspacing="0" cellpadding="0"> 
+		        <tbody> 
+		         <tr> 
+		          <td width="40%">总资产(元)</td> 
+		          <td>持仓市值</td> 
+		          <td>{{total_marketPrice}}</td> 
+		          <td rowspan="2" align="center" valign="middle" style="vertical-align:middle; width:3em;"><i class="fa fa-angle-right"></i></td> 
+		         </tr> 
+		         <tr> 
+		          <td><h4 class="color-white">{{resetMoney+total_marketPrice}}</h4></td> 
+		          <td>总盈亏</td> 
+		          <td>{{total_profit}}</td> 
+		         </tr> 
+		        </tbody> 
+		       </table> 
+		      </div> 
+		      <hr class="hr1" /> 
+		      <div class="content half-top no-bottom"> 
+		       <table class="small-text color-white" width="100%" border="0" cellspacing="0" cellpadding="0"> 
+		        <tbody> 
+		         <tr> 
+		          <td width="40%">账户余额(元)</td> 
+		          <td rowspan="2" align="center" valign="middle" style="vertical-align:middle; width:3em;"><a ui-sref="app.rechargeOne" href="javascript:void(0);" class="button-xs no-bottom" style="width: 85%">充值</a></td> 
+		          <td rowspan="2" align="center" valign="middle" style="vertical-align:middle; width:3em;"><a ui-sref="app.cashoutOne" href="javascript:void(0);" class="button-xs no-bottom" style="width: 85%">提现</a></td> 
+		         </tr> 
+		         <tr> 
+		          <td><h4 class="color-white">{{resetMoney}}</h4></td> 
+		         </tr> 
+		        </tbody> 
+		       </table> 
+		      </div> 
+		     </div> 
+		     <div class="list-item half-bottom"> 
+		      <hr class="hr1 no-bottom" /> 
+		      <a class="menu-item" href="javascript:void(0);"> <em>星共创产品</em> <i class="fa fa-angle-right"></i> </a> 
+		      <hr class="hr1 no-bottom" /> 
+		      <a class="menu-item" href="javascript:void(0);"> <em>勋章到手</em> <i class="fa fa-angle-right"></i> </a> 
+		      <hr class="hr1 no-bottom" /> 
+		      <a class="menu-item" href="javascript:void(0);"> <em>地址管理</em> <i class="fa fa-angle-right"></i> </a> 
+		      <hr class="hr1 no-bottom" /> 
+		      <a class="menu-item" href="javascript:void(0);"> <em>邀请好友</em> <i class="fa fa-angle-right"></i> </a> 
+		      <hr class="hr1 no-bottom" /> 
+		      <a class="menu-item" href="javascript:void(0);"> <em>在线客服</em> <i class="fa fa-angle-right"></i> </a> 
+		      <hr class="hr1 no-bottom" /> 
+		     </div> 
+		     <div class="spacer"></div> 
+		     <div class="content"> 
+		      <a href="javascript:void(0);" class="button-center button-yellow button-fullscreen" ng-click="logout()"> 安全退出 </a> 
+		     </div> 
+		     <div class="footer footer-light"> 
+		      <div class="footer-content"> 
+		       <a href="javascript:void(0);" class="footer-logo"> </a> 
+		      </div> 
+		     </div> 
+		    </div> 
+		   </div> 
+		  </div>
+	</ion-content>
+</ion-view>

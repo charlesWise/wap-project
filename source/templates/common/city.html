@@ -1,0 +1,47 @@
+
+    <div class="select-address" style="{{clientType?'top:0;':''}}">
+    <div class="select-address-container">
+        <ul>
+
+            <li>
+                <!-- 省份 -->
+                <span ng-repeat="item in provinces"
+                      ng-click="aSet.p(item)"
+                      ng-if="item.p == p || t == 1"
+                      ng-class="{'label label-success': p === item.p}">
+                    {{item.p}} {{x}}
+                </span>
+            </li>
+
+            <li ng-if="cities">
+                <!-- 城市 -->
+                <span ng-repeat="item in cities"
+                      ng-click="aSet.c(item)"
+                      ng-if="item.n == c || t == 2"
+                      ng-class="{'label label-success': c === item.n}">
+                    {{item.n}}
+                </span>
+            </li>
+
+            <li ng-if="c">
+                <!-- 县级 -->
+                <span ng-repeat="item in dists"
+                      ng-click="aSet.a(item)"
+                      ng-if="item.s == a || t == 3"
+                      ng-class="{'label label-success': a === item.s}">
+                    {{item.s}}
+                </span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- <div class="select-address-footer">
+        <span class="pull-right">
+            <button ng-click="clear()" class="btn btn-sm btn-link">清空</button>
+            <button ng-click="submit()" class="btn btn-sm btn-success" type="submit">确定</button>
+        </span>
+
+        <strong class="text-danger">{{ p }} {{ c }} {{ a }}　</strong>
+        <input ng-show="p" ng-model="d" class="form-control input-sm" type="text" placeholder="具体街道" />
+    </div> -->
+  </div>

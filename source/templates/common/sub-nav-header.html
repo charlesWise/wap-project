@@ -1,0 +1,17 @@
+<div class="bar bar-header bar-light bar-white" ng-show="isWapClient">
+  <h1 ng-click="toggle()" class="title" style="line-height:28px;">{{title}} <i class="ion-arrow-down-b"></i></h1>
+  <p class="finance-top-bar" style="line-height:19px;bottom:0;background:none" ng-bind="typeLabel"></p>
+  <!-- 下拉二级菜单 star -->
+  <div id="navList" class="sub-menu-box animate-show ng-hide" ng-show="isVisible">
+    <ul class="sub-menu-list">
+      <li ng-repeat="nav in subNav" ng-click="action(nav.action, this)">
+        <a ng-if="nav.icon" class="block"><span class="block"><i class="icons72-sprite change72 position72-{{nav.icon}}"></i></span>{{nav.label}}</a>
+      </li>
+    </ul>
+  </div>
+  <!-- 下拉二级菜单 end -->
+  <div class="buttons nav-menu-right">
+    <button ng-if="isHasMenu" class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
+  </div>
+</div>
+<div class="mask-box ng-hide" ng-show="isVisible"></div>

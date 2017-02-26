@@ -1,0 +1,36 @@
+<ion-view hide-nav-bar="true" class="has-header-view">
+	<div class="header header-light half-bottom header-common">
+		<a href="javascript:void(0)" onClick="javascript:history.go(-1);" class="header-icon-1" >
+			<i class="fa fa-angle-left"></i>
+		</a>
+		<div class="header-logo">
+		转让中的勋章
+		</div>
+
+		<!-- <a href="javascript:void(0)" onClick="javascript:history.go(-1);" class="header-icon-4" >
+			<i class="fa fa-plus"></i>
+		</a> -->
+	</div>
+	<ion-content class="business_page">
+		<div class="cover-page">
+		    <div class="cover-page-content fullwidth">
+		      	<div class="spacer half-bottom"></div>
+		      	<div class="content">
+			      	<div class="store-item-list half-bottom" ng-repeat="item in list">
+		                <a href="javascript:void(0);">
+		                    <!-- <img src="images/starpic01.jpg" alt="img"> -->
+		                    <img src="{{item.pic}}" alt="img">
+		                    <strong>{{item.name}}</strong>
+		                    <h4 style="top: 33%;" class="{{ item.close - item.open < 0 ? 'color-green-light' : 'color-red-light'}}">{{item.close || item.prevClose}}</h4>
+		                    <small class="{{ item.close - item.open < 0 ? 'color-green-light' : 'color-red-light'}}"><i class="fa fa-long-arrow-up"></i><span>{{(item.close - item.open) || '字段待确认'}}<br>{{(item.close/item.open) || '字段待确认'}}%</span></small>
+		                    <em class="color-white">
+		                        已付红利 0.00
+		                    </em>  
+		                    <u>{{item.status|productStatus}}</u>
+		                </a>                       
+			      	</div>
+		      	</div>
+		    </div>
+	  	</div>
+	</ion-content>
+</ion-view>

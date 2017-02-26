@@ -1,0 +1,13 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">{{modalTitle}}</h1>
+    <div class="buttons">
+      <button class="button button-clear font12" ng-click="closeModal()">关闭</button>
+    </div>
+  </ion-header-bar>
+  <ion-content 
+    ng-bind-html="modalContent | trustedHtml"
+    overflow-scroll="true"
+    class="padding" compile>
+  </ion-content>
+</ion-modal-view>

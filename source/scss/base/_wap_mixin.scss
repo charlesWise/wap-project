@@ -1,0 +1,291 @@
+@charset "UTF-8";
+@mixin font-size($size){
+	font-size: $size + rem;
+}
+%font-size-12{
+  @include font-size(0.511);
+}
+%font-size-14{
+  @include font-size(0.596);
+}
+%font-size-16{
+  @include font-size(0.681);
+}
+%font-size-18{
+  @include font-size(0.766);
+}
+%font-size-20{
+  @include font-size(0.851);
+}
+%font-size-22{
+  @include font-size(0.936);
+}
+%font-size-24{
+  @include font-size(1.021);
+}
+%font-size-26{
+  @include font-size(1.106);
+}
+%font-size-28{
+  @include font-size(1.191);
+}
+%font-size-30{
+  @include font-size(1.277);
+}
+
+%ovh{overflow:hidden;}
+
+%fwb{font-weight:bold;}
+
+
+@mixin containerWidth($containerWidth,$value: auto){
+   max-width:$containerWidth;
+   margin:$value;
+}
+%containerWidth{
+  @include containerWidth(640px, auto);
+}
+
+//上下对齐的方式
+@mixin vertical-align($direction:middle){
+	vertical-align:$direction;
+}
+%vam{
+	@include vertical-align(middle);
+}
+
+//文本左，中，右对齐方式
+@mixin text-align($direction:center){
+	text-align:$direction;
+}
+%text-align {
+	@include text-align(center);
+}
+
+%float-right{
+  @include float(right);
+}
+
+
+// 文字设置 
+@mixin fontStyle($size, $color, $family){
+	font-size: $size;
+	color: $color;
+	font-family: $family;
+}
+//高度与行高的配置
+@mixin height($extend:true, $height : auto, $lineHight:auto){
+    @if($extend){
+        height:$height;
+        line-height: $lineHight;
+    } @else{
+        height:$height;
+        // line-height: auto;
+    }
+}
+//最大宽度
+@mixin max-width{
+	width:100%;
+	max-width: 640px;
+}
+
+/* position relative obsolute fixed ...*/
+@mixin position($value:relative){
+ 	position: $value;
+}
+%relative{
+	@include position(relative);
+}
+%absolute{
+	@include position(absolute);
+}
+
+
+/* 
+Data: 2015/03/09
+Name: padding margin value 基础 循环值设定 
+$attribute;
+$direction;
+$value; 
+*/
+@mixin box-value-site($value:20){
+  $attribute: padding, margin;
+  $direction: left, right, top, bottom;
+  @each $att in $attribute{
+    @each $dir in $direction{
+      .#{$att}-#{$dir}-#{$value}{
+        #{$att}-#{$dir}: $value + px;
+      }
+    }
+  }
+ }
+
+//基础宽度设置
+@mixin width($value:10){
+  @for $i from 1 to $value{
+    .width-#{$i}{
+      width: $i * 10% ;
+    }
+  }
+}
+
+//方向属性
+@mixin box-img-box($direction, $width ,$max-width){
+  .box-img-width{
+    text-align: $direction;
+    img{
+      width:$width;
+      max-width: $max-width;
+    }
+  }
+}
+// 变量设置
+@mixin box-img-dir($direction, $width ,$max-width){
+  text-align: $direction;
+  img{
+    width:$width;
+    max-width: $max-width;
+  }
+}
+//图片尺寸大小 
+@mixin img-size-value($width, $max-width){
+  width:$width;
+  max-width:$max-width;
+}
+//border
+@mixin border-value($width:1px,$color:$grey-dd,$radius:50%){
+  border-width: $width;
+  border-color: $color;
+  border-radius: $radius;
+  border-style: solid;
+}
+
+//精灵图 优化 @mixin
+//参数 的设置： $sprites 精灵图片地址， $name 文件夹下图片的名称，$size 移动端参数 默认参数 font-size;
+///*转换px到rem*/
+// $browser-default-font-size : 20px !default;
+@function pxTorem($px, $value){
+    @if $px == 0{$px:0px}
+    @return $px / $value * 1rem;
+}
+@function pxTo2rem($px, $value){
+    @if $px == 0{$px:0px}
+    @return $px / ($value*2) * 1rem;
+}
+
+@mixin iconItem($sprites,$name, $size, $iE6:null){
+    background:sprite-url($sprites) no-repeat;  //获取整个雪碧图路径
+    @if $iE6 != null{ //null
+        _background:sprite-url($iE6) no-repeat; //此处传进来的格式须是png8
+    }
+    $width:image-width(sprite-file($sprites,$name));  //sprite-file 获取目标图片
+    $height:image-height(sprite-file($sprites,$name));  //获取目标图片
+    $toalWidth:image-width(sprite-path($sprites));    //获取整张图的宽度
+    $totalHeight:image-height(sprite-path($sprites));   //获取整张图的高度
+    $widthHalf:ceil($width/1.9);                             //获取宽度的一半
+    $heightHalf:ceil($height/1.9);                        //获取高度的一半
+    //sprite-position 获取目标图的位置,nth操作数组
+    $posX:round(nth(sprite-position($sprites,$name),1));  //获取沿x轴的位移
+    $posY:round(nth(sprite-position($sprites, $name), 2));  //获取沿y轴的位移
+    height:pxTorem($heightHalf, $size);
+    width:pxTorem($widthHalf, $size);
+    font:$posX;
+    font:$posY;
+    background-position: pxTo2rem($posX, $size) pxTo2rem($posY, $size);
+    background-size:pxTo2rem($toalWidth, $size) pxTo2rem($totalHeight, $size);
+}
+
+@mixin layer-center{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+@mixin border-unilateral-tb($color, $direction) {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.5, transparent), color-stop(0.5, $color));
+  background-position: $direction left;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+}
+@mixin border-unilateral-lr($color, $direction) {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0.5, transparent), color-stop(0.5, $color));
+  background-position: $direction left;
+  background-repeat: no-repeat;
+  background-size:1px 100%;
+}
+@mixin border($color) {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.5, transparent), color-stop(0.5, $color)), -webkit-gradient(linear, left top, right top, color-stop(0.5, transparent), color-stop(0.5, $color)), -webkit-gradient(linear, left top, left bottom, color-stop(0.5, transparent), color-stop(0.5, $color)), -webkit-gradient(linear, right top, left top, color-stop(0.5, transparent), color-stop(0.5, $color));
+  background-position: top, right, bottom, left;
+  background-repeat: no-repeat;
+  background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+}
+
+//display状态提取
+@mixin display($state:inline-block){
+  display: $state;
+}
+
+%display{
+  @include display(inline-block);
+   @if $lte7 {
+      *display: inline;
+      *zoom:1;
+   }
+}
+//文本左，中，右对齐方式
+@mixin textAlign($direction:center){
+  text-align:$direction;
+}
+%textAlign {
+  @include textAlign(center);
+}
+/**
+ * @name: 清除浮动
+ * @author: chenrunsheng
+*/
+@mixin clearfix() {
+  clear: both;
+  overflow: hidden;
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+@mixin displayFlex() {
+  display: flex;
+  display: -webkit-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  display: -moz-flex;
+
+  display: box;
+  display: -webkit-box;
+  display: -o-box;
+  display: -ms-box;
+  display: -moz-box;
+
+  display: flexbox;
+  display: -webkit-flexbox;
+  display: -o-flexbox;
+  display: -ms-flexbox;
+  display: -moz-flexbox;
+
+}
+@mixin boxFlex($valFlex) {
+  flex: $valFlex;
+  -webkit-flex: $valFlex;
+  -o-flex: $valFlex;
+  -ms-flex: $valFlex;
+  -moz-flex: $valFlex;
+  
+  -moz-box-flex:$valFlex;
+  -webkit-box-flex:$valFlex;
+  box-flex:$valFlex;
+  -ms-box-flex: $valFlex;
+  -moz-box-flex: $valFlex;
+}

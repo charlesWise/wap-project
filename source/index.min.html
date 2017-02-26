@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="fragment" content="!"/>
+    <link rel="shortcut icon" href="images/top-icon.ico" type="image/x-icon" />
+    <title>文金所</title>
+    <link rel="stylesheet" href="fonts/iconfont.css">
+    <link rel="stylesheet" href="fonts/font2/iconfont.css">
+    <link rel="stylesheet" href="css/libcss.min.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/framework.css">
+    <link rel="stylesheet" href="css/common.css">
+    <style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <script>
+      window.ENV = {
+        "version": "1.0",
+        //环境
+        "env": "prd",
+        "debug": false,
+        //mock 统一拦截规则，可以为一个正则表达式
+        "blockRule": false,
+        "mockEnv": false,
+        isPageCheck: false // 检查页面是否登录可进
+      };
+      //是否启动 mock: 只有在 dev 环境下开启 mockEnv 后才启动 mock
+      ENV.useMock = (ENV.env !== 'prd' && ENV.env === 'dev' && ENV.mockEnv);
+      // 不抛出错误
+      window.onerror = function(e) {
+        return true;
+      };
+    </script>
+    <!-- ionic/angularjs js -->
+    <script src="js/ionic.bundle.min.js"></script>
+
+    <!-- product app's js-->
+    <script src="js/normaljs.min.js"></script>
+    <script src="js/ng.min.js"></script>
+    <script src="js/templates.min.js"></script>
+  </head>
+
+  <body ng-app="wjswap">
+    <ion-nav-view><ion-view></ion-view></ion-nav-view>
+  </body>
+  <script>
+   window.addEventListener(('orientationchange' in window ? 'orientationchange' : 'resize'), (function () { function c() { var d = document.documentElement; var cw = d.clientWidth || 750; d.style.fontSize = (11.75 * (cw / 375)) > 23.5 ? 23.5 + 'px' : (11.75 * (cw / 375)) + 'px'; } c(); return c; })(), false);
+   function showOrhideIcon(id,type){
+     var el = document.getElementById(id);
+     if(type == 'show'){
+       el.setAttribute('data-icon',true);
+     }else{
+       el.setAttribute('data-icon',false);
+     }
+   }
+   </script>
+</html>

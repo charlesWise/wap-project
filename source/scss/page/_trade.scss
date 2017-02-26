@@ -1,0 +1,47 @@
+@charset "UTF-8";
+.medal-content {
+    padding-top: 1rem;
+    background: linear-gradient(to bottom, #37aede 0%, #835ae6 90%);
+    height: 100%;
+    &.medal-buy {
+        padding-top: 0;
+        position: static;
+        .medal-place {
+            margin-top: 1rem;
+            padding-left: 4%;
+        }
+        &.kill-content{
+            padding-top: 37px;
+        }
+    }
+    p.introduce {
+        padding: 1rem;
+    }
+}
+
+.bug-content {
+    height: 10rem;
+}
+
+.buy-btn {
+    padding: 0;
+}
+
+.status-menu {
+    @include clearfix;
+    a {
+        box-sizing: border-box;
+    }
+}
+.medal-list {
+    padding: 1rem 1rem 2rem;
+}
+.kill-order{
+    padding-bottom: 20%;
+}
+.klines-content{
+    @include clearfix;
+    #klines{
+        padding: 0 .5rem;
+    }
+}

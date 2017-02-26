@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/**
+ * Description  弹出层类
+ * Created 2016/10/11.
+ */
+
+.u-mask{position: absolute; bottom: 0; left: 0; @extend %zIndexMask; width: 100%; height: 100%; background: #000; @include opacity(80);}
+.u-dialog{position: fixed; top:50%; left:50%; @extend %zIndexDialog; margin-left:-13.485732225392985rem; width: 26.97146445078597rem;
+  background-color: #fff; @include border-radius(0.5984022659499137rem);
+  .dialog-hd{position: relative; padding:1.5610493894345576rem 1.1968045318998275rem 0.43362483039848826rem 1.1968045318998275rem; font-size: 1.2765915006931494rem;
+    border-bottom: 1px solid #E6E6E6; color: #212121; text-align: center; @extend %fontFamilyPFSCLight;
+
+    .sub-tt{display: block; margin-top:0.43362483039848826rem; font-size: 1.214149525115767rem; color: #5A5A5A;}
+    .icon-dialog-close{position: absolute; right:1.214149525115767rem; top:1.214149525115767rem; @include backgroundImages('../images/icons/small-icon/icon-dialog-close.png',1.214149525115767rem,1.214149525115767rem);}
+  }
+  .dialog-ct{padding:1.5957393758664367rem 1.0406995929563718rem; }
+  .dialog-ft{border-top:1px solid #E6E6E6; line-height: 4.553060719184127rem; text-align: center; font-size: 1.3875994572751624rem;
+     a{color: $blue-light !important; @extend %fontFamilyPFSCLight;}
+  }
+
+  .icon-dialog-bigClose{margin-top:4.336248303984882rem;@include backgroundImages('../images/icons/small-icon/icon-white-close.png',2.775198914550325rem,2.775198914550325rem);}
+}

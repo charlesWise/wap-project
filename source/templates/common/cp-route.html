@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全宇宙最强CP组合配对神器</title>
+</head>
+<body>
+<script>
+    var href=window.location.href,
+         targetHref='';
+
+    //获取地址栏参数
+    var getQueryString=function(name){
+        var reg = new RegExp('(^|&)'+ name +'=([^&]*)(&|$)'),
+            search = window.location.search.substr(1).match(reg),
+            result='';
+
+        if(search!==null){
+            result= unescape(search[2]);
+        }else{
+            result= null;
+        }
+
+        return result;
+    };
+
+    if(href.indexOf('?')>-1){
+        var suffix='?wxcode='+getQueryString("code");
+        switch (getQueryString('name')){
+            case 'cpIndex':
+                targetHref='https://waptest.toubaojia.com/#/cpRoute/0'+suffix;
+                break;
+            case 'cpShare':
+                suffix+='&openid='+getQueryString('openid');
+                targetHref='https://waptest.toubaojia.com/#/cpRoute/1'+suffix;
+                break;
+        }
+
+       window.location.href=targetHref;
+    }
+</script>
+</body>
+</html>

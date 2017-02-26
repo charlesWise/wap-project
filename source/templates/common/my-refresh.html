@@ -1,0 +1,14 @@
+<div>
+	<div my-transclude></div>
+	<ion-refresher ng-if="isScorllDown" on-refresh="getAjax(true)"
+		pulling-text="下拉刷新"
+		refreshing-text="刷新中..."
+		refreshing-icon="ion-loading-c">
+	</ion-refresher>
+	<ion-infinite-scroll
+		ng-if="!isNoData && isScorllUp" 
+		immediate-check="false" 
+	 	icon="ion-loading-c"
+	 	on-infinite="getAjax()">
+	</ion-infinite-scroll>
+</div>

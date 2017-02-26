@@ -1,0 +1,48 @@
+<ion-view hide-nav-bar="true" class="has-header-view">
+    <div class="header header-light half-bottom header-common">
+        <a href="javascript:void(0)" onClick="javascript:history.go(-1);" class="header-icon-1">
+            <i class="fa fa-angle-left"></i>
+        </a>
+        <div class="header-logo">
+            历史成交
+        </div>
+    </div>
+    <ion-content>
+        <div class="cover-page account-center-content">
+            <div class="cover-page-content fullwidth deal-history">
+                <div class="content half-bottom start-stop-time">
+                    <table class="small-text color-white center-text table01" style="background: rgba(255,255,255,.3);" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td id="startSelectDate">起始日期<br>
+                                <h5 class="color-white" data-year="" data-month="" data-date="" id="showStartDate">{{startTime}}</h5>
+                            </td>
+                            <td align="center" valign="middle" style="vertical-align:middle; width:3em;"><i class="fa fa-arrow-circle-right"></i></td>
+                            <td id="endSelectDate">截止日期<br>
+                                <h5 class="color-white" data-year="" data-month="" data-date="" id="showEndDate">{{endTime}}</h5>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="content history-list">
+                    <div class="small-text center-text color-white table01" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <ul class="history-menu">
+                            <li>藏品<br>时间</li>
+                            <li class="li2">成交价</li>
+                            <li class="li3">成交量</li>
+                            <li class="li4">手续费</li>
+                        </ul>
+                        <my-refresh init-opts="{isNoAuto: false, start: timeStamp, end: selectTimeStamp}" ajax-name="userTrades">
+                            <p ng-if="!items.length && !isFirst">暂无转让记录</p>
+                            <ul class="entrust-list" ng-repeat="item in items track by $index">
+                                <li>{{item.productName}}<br><span class="highlighted1 bg-red-dark color-white">{{item.side == 'SELL' ? '卖' : '买'}}</span> {{item.time | date:'yyyy-MM-dd HH:mm'}}</li>
+                                <li>{{item.price}}</li>
+                                <li>{{item.qty}}</li>
+                                <li>{{item.fee}}</li>
+                            </ul>
+                        </my-refresh>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

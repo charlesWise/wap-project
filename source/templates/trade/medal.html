@@ -1,0 +1,227 @@
+<ion-view hide-nav-bar="true" class="has-header-view">
+    <div class="header header-light half-bottom header-common">
+        <a href="javascript:void(0);" onClick="javascript:history.go(-1);" class="header-icon-1">
+            <i class="fa fa-angle-left"></i>
+        </a>
+        <div class="header-logo small-text">
+            勋章名称（勋章代码）<br> 闭市中 01-26 12:53:00
+        </div>
+    </div>
+    <ion-content>
+        <div class="cover-page">
+            <div class="cover-page-content fullwidth">
+                <div class="medal-content">
+                    <div class="one-half half-bottom">
+                        <h1 class="color-white center-text" style="margin-top:10px">3024.98</h1>
+                        <div class="spacer">
+                        </div>
+                        <span class="one-half color-white center-text">+18.00</span>
+                        <span class="one-half last-column color-white center-text">+0.60</span>
+                    </div>
+                    <div class="one-half last-column half-bottom">
+                        <table class="small-text color-white" width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>今开</td>
+                                <td>成交量</td>
+                                <td rowspan="4" align="center" valign="middle" style="vertical-align:middle; width:3em;"><i class="fa fa-angle-down"></i></td>
+                            </tr>
+                            <tr>
+                                <td>3307.68</td>
+                                <td>1068</td>
+                            </tr>
+                            <tr>
+                                <td>昨收</td>
+                                <td>换手率</td>
+                            </tr>
+                            <tr>
+                                <td>3006.98</td>
+                                <td>8.42%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="no-bottom tab_menu">
+                        <a href="javascript:void(0);" ng-click="getKlines('1h')" class="center-text one-forth {{interval=='1h'?'active':''}}">
+                            分时
+                        </a>
+                        <a href="javascript:void(0);" ng-click="getKlines('1d')" class="center-text one-forth {{interval=='1d'?'active':''}}">
+                            日K
+                        </a>
+                        <a href="javascript:void(0);" ng-click="getKlines('1w')" class="center-text one-forth {{interval=='1w'?'active':''}}">
+                            周K
+                        </a>
+                        <a href="javascript:void(0);" ng-click="getKlines('1m')" class="center-text one-forth last-column {{interval=='1m'?'active':''}}">
+                            分钟 <i class="fa fa-angle-down"></i>
+                        </a>
+                    </div>
+                    <div class="klines-content">
+                        <div id="klines" style="width: 100%;height:300px;"></div>
+                    </div>
+                    <div class="tab_menu">
+                        <a href="javascript:void(0);" class="center-text one-forth {{tradeType==1 ? 'active':''}}" ng-click="doSelect(1)">
+                            勋章详情
+                        </a>
+                        <a href="javascript:void(0);" class=" center-text one-forth {{tradeType==2 ? 'active':''}}" ng-click="doSelect(2)">
+                            买入
+                        </a>
+                        <a href="javascript:void(0);" class=" center-text one-forth {{tradeType==3 ? 'active':''}}" ng-click="doSelect(3)">
+                            卖出
+                        </a>
+                        <a href="javascript:void(0);" class=" center-text one-forth last-column {{tradeType==4 ? 'active':''}}" ng-click="doSelect(4)">
+                            撤单
+                        </a>
+                    </div>
+                </div>
+                <!--勋章详情-->
+                <div ng-if="tradeType==1" class="color-white medal-content medal-buy">
+                    <img src="images/starpic01.jpg" alt="chart" style="width:100%" />
+                    <p class="introduce">何明翰（heminghan），中国内地著名男演员，毕业于上海戏剧学院。出演校园青春偶像剧《十八岁的天空》出道，主演电影《明天》并凭借该剧入围新锐榜最佳男主角，与蒋欣主演的战争戏《箭在弦上》获得同时间段收视冠军及网络点击冠军，2012年主演电视剧《生死依托》在央视一套播出；同年与韩庚共同主演电影《第一大总统》，后与李幼斌联合主演悬疑年代剧《假面》《爱的保镖》《活法》《别让我看见》四部戏，因戏与李幼斌结为师徒。领衔主演的《别让我看见》2015年三月获得CCTV1黄金档收视冠军，被誉为最有收视保障的“黄金师徒”，同年被著名作家桐华钦点出演她的新剧《煮妇神探》饰演李小璐的老公沈墨初。2016年开年《刀光枪影》、《煮妇神探》、《潜行者》三剧连播，得到业内及观众的一致好评。</p>
+                </div>
+
+                <!--买入或卖出-->
+                <div ng-if="tradeType==2 || tradeType==3" class="color-white medal-content medal-buy">
+                    <div>
+                        <!--买入-->
+                        <div ng-if="tradeType==2" class="control one-half medal-place">
+                            <form novalidate>
+                                <div class="store-input half-bottom">
+                                    <input type="text" ng-model="symbol" required="请输入商品代码或名称" placeholder="商品代码或名称">
+                                </div>
+                                <div class="store-cart-2 fullwidth">
+                                    <div class="cart-item">
+                                        <h4>
+                                            <a ng-click="addBuyPrice()" href="javascript:void(0);" class="add-qty">
+                                                <i class="fa fa-plus"></i>
+                                            </a>
+                                            <input type="text" ng-model="buyPrice" class="qty">
+                                            <a ng-click="minusBuyPrice()" href="javascript:void(0);" class="substract-qty">
+                                                <i class="fa fa-minus"></i>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="one-half color-white small-text">
+                                        跌停: 58.44
+                                    </div>
+                                    <div class="one-half last-column color-white small-text">
+                                        涨停: 58.44
+                                    </div>
+                                </div>
+                                <div class="store-input">
+                                    <input type="number" ng-model="buyQty" required="请输入买入量" placeholder="买入量 可买{{maxPurchase||0}}">
+                                </div>
+                                <div>
+                                    <div class="one-half color-white small-text">
+                                        交易额： {{ buyPrice*buyQty || '--'}}
+                                    </div>
+                                    <div class="one-half last-column color-white small-text">
+                                        余额: {{resetMoney || '--'}}
+                                    </div>
+                                </div>
+                                <a ng-click="buy()" href="javascript:void(0);" class="button button-xs button-lightblue fullwidth center-text buy-btn">立即买入</a>
+                            </form>
+                        </div>
+                        <!--卖出-->
+                        <div ng-if="tradeType==3" class="control one-half medal-place">
+                            <form novalidate>
+                                <div class="store-input half-bottom">
+                                    <input type="text" ng-model="symbol" required="请输入商品代码或名称" placeholder="商品代码或名称">
+                                </div>
+                                <div class="store-cart-2 fullwidth">
+                                    <div class="cart-item">
+                                        <h4>
+                                            <a ng-click="addSellPrice()" href="javascript:void(0);" class="add-qty">
+                                                <i class="fa fa-plus"></i>
+                                            </a>
+                                            <input type="text" ng-model="sellPrice" class="qty">
+                                            <a ng-click="minusSellPrice()" href="javascript:void(0);" class="substract-qty">
+                                                <i class="fa fa-minus"></i>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="one-half color-white small-text">
+                                        跌停: 58.44
+                                    </div>
+                                    <div class="one-half last-column color-white small-text">
+                                        涨停: 58.44
+                                    </div>
+                                </div>
+                                <div class="store-input">
+                                    <input type="number" ng-model="sellQty" required="请输入卖出量" placeholder="卖出量 可卖11">
+                                </div>
+                                <div>
+                                    <div class="one-half color-white small-text">
+                                        交易额：{{ sellPrice*sellQty || '--'}}
+                                    </div>
+                                    <div class="one-half last-column color-white small-text">
+                                        余额: {{resetMoney || '--'}}
+                                    </div>
+                                </div>
+                                <a ng-click="sell()" href="javascript:void(0);" class="button button-xs button-lightblue fullwidth center-text buy-btn">立即卖出</a>
+                            </form>
+                        </div>
+                        <!--深度行情-->
+                        <div class="histroy one-half last-column half-bottom medal-place">
+                            <ul class="medal-in-out bottom-border">
+                                <li ng-repeat="ask in asks track by $index">
+                                    <span>卖{{5-$index}}</span>
+                                    <span>{{ask[0]}}</span>
+                                    <span>{{ask[1]}}</span>
+                                </li>
+                            </ul>
+
+                            <ul class="medal-in-out">
+                                <li ng-repeat="bid in bids track by $index">
+                                    <span>买{{$index+1}}</span>
+                                    <span>{{bid[0]}}</span>
+                                    <span>{{bid[1]}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab_menu status-menu">
+                        <a class=" center-text one-forth">
+                            藏品/市值
+                        </a>
+                        <a class=" center-text one-forth">
+                            持仓/可用
+                        </a>
+                        <a class=" center-text one-forth">
+                            盈亏
+                        </a>
+                        <a class=" center-text one-forth last-column">
+                            成本/现价
+                        </a>
+                    </div>
+                    <ul class="sell-list" ng-repeat="userAsset in userAssets">
+                        <li>{{userAsset.productName}}</li>
+                        <li class="li2">{{userAsset.cost}}/{{userAsset.free}}</li>
+                        <li class="li3">{{userAsset.profit}}</li>
+                        <li class="li4">{{userAsset.costPrice}}/{{userAsset.price}}</li>
+                    </ul>
+                    <div style="text-align: center;padding-bottom: 1rem;" ng-if="!userAssets || userAssets.length <= 0">暂无数据</div>
+                </div>
+
+                <!-- 撤单 -->
+                <div ng-if="tradeType==4" class="color-white medal-content medal-buy kill-content">
+                    <div class="small-text color-white center-text fullwidth kill-order">
+                        <ul class="kill-menu">
+                            <li>勋章名称/市值</li>
+                            <li class="li2">价格</li>
+                            <li class="li3">成交/委托</li>
+                            <li class="li4">操作</li>
+                        </ul>
+                        <ul class="kill-list">
+                            <li>何明翰明星勋章<br>15.00</li>
+                            <li class="li2">15.00</li>
+                            <li class="li3"><a href="javascript:void(0);">委托</a></li>
+                            <li class="li4"><a href="javascript:void(0);" ng-click="deleteOrder(item)">撤单</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,20 @@
+@charset "UTF-8";
+@import "../lib/ionic/scss/mixins";
+@import "../lib/ionic/scss/variables";
+
+@import 'sassCore/base'; //sassCore 库文件
+@import 'sassCore/core/mixin';
+@import "sassCore/ext/animate/fade";
+@import "sassCore/ext/animate/bounce";
+@import "sassCore/ext/animate/lightspeed";
+@import "sassCore/ext/animate/flip";
+@import "sassCore/ext/animate/special";
+
+@import 'base/variable';// 自定义网站基础变量设置z
+@import 'base/wap_mixin';// 网站 所用到的mixin集 分类
+@import 'base/base';// 网站基本的设置
+
+@import 'page/common';
+@import 'page/account';
+@import 'page/stock';
+@import 'page/trade';

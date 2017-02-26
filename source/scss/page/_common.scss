@@ -1,0 +1,613 @@
+@charset "UTF-8";
+
+.bar{
+  .title{
+    @include ellipsis(80%);
+    left: 10%;
+    right: 10%;
+    margin: 0;
+  }
+  &.search .title{
+    border: 1px solid #ccc;
+    height: 2.553rem;
+    margin-top: 5px;
+    border-radius: .3rem;
+    line-height: 2.553rem;
+    font-weight: normal;
+    font-size: 1.2rem;
+    width: 74%;
+  }
+}
+.bar.bar-blue-dark{
+  background-color:$blue-dark;
+  position: absolute;
+  .title{
+    color:$white;
+    @extend %font-size-18;
+    font-family: $fontHeiTi;
+  }
+  .button{
+    @extend %font-size-14;
+    font-family: $fontHeiTi;
+    border: none;
+    background-color: transparent;
+    &.activated{
+      border: none;
+      background-color: transparent;
+    }
+    &.ion-android-more{
+      @extend %absolute;
+      z-index:20;
+      top:1px;
+      right:0px;
+      height: 100%;
+      padding:0 20px;
+      &:after{
+        display:inline-block;
+        background-color:#fff;
+        padding:2px;
+        box-shadow:0 -8px 0 0 #fff,0 8px 0 0 #fff;
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        bottom: inherit;
+        left: inherit;
+        content: ' ';
+        @include prefixer(transform, translate3d(50%,-50%,0), o webkit ms moz);
+      }
+    }
+  }
+  .header-back-button{
+    position: absolute;
+    left: 10px;
+    width: 40px;
+    height: 100%;
+    top: 0;
+    z-index: 33;
+  }
+  .others-back-button{
+    line-height: 16px;
+    min-height: 16px;
+    height: 16px;
+    border: none;
+    background-color: transparent;
+    margin-top: 13px;
+    margin-left: 4px;
+  }
+}
+.bar{
+  // 控制菜单
+  .nav-menu-left{
+    position: absolute;
+    left: 10px;
+  }
+  .nav-menu-right{
+    position: absolute;
+    right: 10px;
+  }
+}
+.top-logo-small{
+  border-top: 1px solid $grey-fc;
+  border-bottom:1px solid #e0ebf4;
+  position: relative;
+  .button.button-icon{
+    color: $blue-dark;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+  padding: 10px;
+}
+.top-logo-small{
+  border-top: 1px solid $grey-fc;
+  border-bottom:1px solid #e0ebf4;
+  position: relative;
+  .button.button-icon{
+    color: $blue-dark;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+}
+.platform-cordova .has-header-view ion-content{
+  padding-top: 60px;
+}
+.has-header-view ion-content{
+  padding-top: 60px;
+}
+.has-subheader-view ion-content{
+  padding-top: 88px;
+  &.padding-105{
+    padding-top:105px;
+  }
+}
+//重写导航
+.menu-side-style{
+  .icons40-sprite{
+    vertical-align: middle;
+    margin-top: -3px;
+    margin-right: 12px;
+  }
+  .item-content{
+    padding:16px 29px 16px 16px;
+  }
+}
+.bar-footer .title{
+  font-size: 18px;
+}
+//footer有两个上下按钮的
+.bar-footer-buttons{
+  height: 120px;
+  .footer-button{
+    position: absolute;
+    left:10px;
+    top: 0;
+    right: 10px;
+    height: 44px;
+    line-height: 44px;
+    @extend %inline-block;
+    @extend %text-align;
+    color: $white;
+    @extend .font18;
+    @include border-radius(5px);
+  }
+  .footer-button-green{
+    background-color: $green;
+  }
+  .footer-button-gray{
+    background-color: $grey-light;
+  }
+  .footer-button-orange{
+    background-color: $orange-light;
+  }
+  .footer-button-b{
+    top: 54px;
+  }
+
+}
+
+/********* 头部下拉 *********/
+#navList {
+  margin-top:0;
+}
+
+/*********** 首页底部 ***********/
+.footer-tiebtn{
+  background: rgba(0, 0, 0, .6);
+  text-align:center;
+  display: block;
+  padding: 10px 0;
+  height:55px;
+}
+.footer-tiebtn .button{
+  position:relative!important;
+  left:auto!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:auto!important;
+  width:45%;
+  border:0;
+  font-size:15px;
+}
+.footer-tiebtn .button-energized{
+  background:#FFAA00;
+}
+.footer-tiebtn .button-balanced{
+  background:#76D033;
+}
+
+/*********** 侧栏菜单 ***********/
+.sidebar-avatar{
+  text-align: center;
+  padding-top:20px;
+}
+.sidebar-avatar .img{
+  overflow:hidden;
+  margin: 0 auto;
+  border-radius: 50%;
+  font-size:35px;
+}
+.sidebar-avatar .img, .sidebar-avatar .img img{
+  width:35px;
+  height:35px;
+}
+.sidebar-avatar .des{
+  font-size:14px;
+  font-weight:normal;
+  margin-top:5px;
+}
+
+.sidebar-tel{
+  text-align:center;
+  padding:20px 0;
+  font-size:16px;
+  color:#666;
+}
+.sidebar-tel .ion-ios-telephone{
+  margin-right:5px;
+}
+
+
+.list-from-trj{
+  .item-input{
+    min-height: 46px;
+  }
+  .ellipsis-css{
+    @include ellipsis();
+    @extend %inline-block;
+    max-width: inherit;
+    padding:7px 26px 7px 0;
+  }
+  label.relative{
+    padding-left: 32px;
+    span.input-label{
+      color: $grey-light;
+      &.font-focus{
+        @extend .font-focus;
+      }
+      &.font-point{
+        @extend .font-point;
+      }
+    }
+    input.input-label{
+      color: $grey-c0;
+    }
+    .change3630.absolute{
+      top: 14px;
+      left: 6px;
+    }
+    .ion-chevron-right{
+      position: absolute;
+      top: 15px;
+      right: 0;
+    }
+    .date-time{
+      // position: absolute;
+      // top: 1px;
+      max-width: 180px;
+    }
+    .labelFontAlt{
+      position: absolute;
+      padding: 13px 20px 7px 0;
+      line-height: 22px;
+      top: 0;
+      right: 0;
+      &.red{
+        color:$red-light
+      }
+    }
+  }
+  label.relative-noicon{
+    padding-left: 8px;
+  }
+  ul.padding-bottom-10{
+    li{
+      padding-bottom: 6px;
+    }
+  }
+}
+.addbgf9f9f9{
+  background-color: #f9f9f9;
+  border-top:$border;
+  border-bottom:$border;
+}
+
+.add-picture{
+  .add-picture-list{
+    width: 84px;
+    margin-right: 14px;
+    input[type=file]{
+      width: inherit;
+    }
+    margin-bottom: 10px;
+    &.margin-bottom-0{
+      margin-bottom: 0;
+    }
+  }
+  .plus-outside{
+    @include border-value(2px,$grey-dd,0px);
+    width: 80px;
+    height: 80px;
+    .ion-plus{
+      font-size: 40px;
+      line-height: 76px;
+    }
+    // display: table-cell;
+    // vertical-align: middle;
+    position: relative;
+    img{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      @include prefixer(transform,translate3d(-50%,-50%,0),webkit moz o ms)
+    }
+  }
+  .upimages{
+    @include img-size-value(auto, 70px);
+    max-height: 70px;
+  }
+  .font-normal{
+    padding-top: 4px;
+  }
+}
+.button-positive{
+  font-size:1.5957393758664367rem; background-color: #329DFF!important; border-color: #329DFF!important; @include border-radius(0.39893rem);
+}
+.has-header-view ion-content{
+  padding-top: 0;
+  top: 60px;
+}
+.top_0{
+  top: 0px!important;
+}
+
+.popup-body {
+  padding: 10px;
+  overflow: auto;
+  text-align: center;
+}
+
+.popup-container.active .popup{
+  border-radius: 1rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+
+.listLoadContainer{
+  height: 50px;
+  line-height: 50px;
+  margin:0 auto;
+  text-align: center;
+}
+
+.padding-right-50{
+  padding-right: 50px;
+}
+
+.ion-record:before{
+  zoom: 0.5;
+}
+.disabled{
+  background-color: #bbb!important;
+}
+.slider{
+  height: 100%;
+}
+.icon-new{
+  position: relative;
+}
+
+li[data-icon="false"] span.new-message,
+a[data-icon="false"] span.new-message,
+a[data-icon="false"] i{
+  display: none;
+}
+li.icon-new[data-icon] i,
+a.icon-new[data-icon] i{
+  position: absolute;
+  font-size: 12px;
+  color: #fff;
+}
+li[data-icon="true"] i:after,
+a[data-icon="true"] i:after{
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: red;
+  top: 0;
+  left:4px;
+  bottom: 0;
+  margin: auto;
+}
+
+// 投资成功后红包分享
+@include keyframes(popDownShow, webkit o moz){
+  0%{
+     opacity: 0;
+     @include prefixer(transform, translate(0,-120%), webkit o moz);
+  }
+  25%{
+    opacity:0.25;
+    @include prefixer(transform, translate(0,-60%), webkit o moz);
+  }
+  50%{
+    opacity:0.5;
+   @include prefixer(transform, translate(0,-40%), webkit o moz);
+  }
+  75%{
+    opacity:0.75;
+    @include prefixer(transform, translate(0,-20%), webkit o moz);
+  }
+  100%{
+    opacity:1;
+    @include prefixer(transform, translate(0,0%), webkit o moz);
+  }
+
+}
+
+.redbag-suc-pop{
+  @include position(fixed);
+  width:90%;
+  left: 0;
+  right: 0;
+  top:12%;
+  margin: auto;
+  opacity:0;
+  //@include prefixer(transform, translate(-50%, -120%), webkit o moz);
+  z-index:1200;
+  overflow:hidden;
+  @include prefixer(animation, popDownShow 1s 0s linear forwards, webkit o moz);
+  .closed{
+    float:right;
+    @include prefixer(transform, translateX(-60%), webkit o moz);
+    width:2.5rem;
+    height:4rem;
+    text-indent:-9999px;
+    overflow:hidden;
+    background:url(../images/redbag/closed.png) no-repeat;
+    @include prefixer(background-size, 100%, webkit o moz);
+  }
+}
+.suc-pop-text{
+  @extend %relative;
+  height:14rem;
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;
+  background:#fb3849;
+}
+.suc-text-info{
+  @extend %absolute;
+  top:15%;
+  left:50%;
+  width:75%;
+  line-height: 2rem;
+  color:#fff;
+  @extend %font-size-16;
+  text-align: center;
+  @include prefixer(transform, translateX(-50%), webkit o moz);
+  font-size:1.277rem;
+}
+.redbag-suc-button{
+  @extend %absolute;
+  bottom:10%;
+  left:50%;
+  @include prefixer(transform, translateX(-50%), webkit o moz);
+  display:block;
+  width:70%;
+  @include height(true, 3.5rem, 3.5rem);
+  text-align: center;
+  color:#ffffb4;
+  font-size:1.615rem;
+  background:#ffae00;
+  box-shadow: 0 0.3rem 0 #e62435;
+  border-radius:10px;
+}
+.pop-hide-error{
+  @extend %absolute;
+  left:50%;
+  top:50%;
+  width:80%;
+  @include prefixer(transform, translate(-50%, -50%), webkit o moz);
+  z-index: 1205;
+  background:#fff;
+  border-radius:6px;
+  font-size:1.25rem;
+}
+.hide-error-txt{
+  padding:5% 0;
+  @include height(true, auto, 3rem);
+  font-size:1.277rem;
+  text-align: center;
+  color:#000;
+}
+.hide-error-btn-box{
+  @include prefixer-value(display, box, webkit o moz);
+  border-top:#f0f0f0 solid 1px;
+  font-size:1.277rem;
+  a{
+    display: block;
+    padding:1.5rem 0;
+    @include prefixer(box-flex, 1, webkit o moz);
+    text-align: center;
+    color:#2185fe;
+    &.a-b{
+      border-left:#f0f0f0 solid 1px;
+    }
+  }
+}
+.mask-box{
+  &.mask-box-error{
+    z-index: 1201;
+  }
+}
+.redbag-pop-share{
+  @extend %absolute;
+  top:10%;
+  left:0;
+  width:100%;
+  height:100%;
+  text-align: center;
+  z-index: 1202;
+  img{
+    width:92%;
+  }
+}
+
+.select-address {
+    position:fixed;
+    width: 100%;
+    top:3.7rem;
+    bottom: 0;
+    z-index: 19911125;
+    transition:0.3s;
+    box-shadow: 0 3px 12px rgba(0,0,0,.175);
+    background: #fff;
+    display: none;
+    overflow-y: auto;
+}
+
+.select-address.active {
+    top: 0!important;
+}
+
+.select-address-container ul {
+  width: 100%;
+
+  .label-success{
+    background-color: #ccc;
+  }
+}
+
+.select-address-container ul li {
+
+}
+
+.select-address-container ul li span {
+    font-size: 14px;
+    display: block;
+    padding:20px;
+    cursor: pointer;
+    border-bottom: 1px solid #efefef;
+    color: #333;
+}
+
+.select-address-footer {
+    border-top: 1px solid #eee;
+    padding: 10px 15px;
+    overflow: hidden;
+}
+
+.select-address-footer input {
+    min-width: 50%;
+}
+
+/*键盘面板*/
+.m-keyboard-panel{position: fixed; bottom: 0; left:-1px; z-index:2147483647; width: 100%; background-color: #fff; text-align: center; color: #000; font-size: 2.1941416418163504rem;
+  .keyboard-hd{padding-left:0.7978696879332183rem; padding-right: 0.7978696879332183rem; background-color: #F5F5F6; height: 3.1914787517328733rem; line-height: 3.1914787517328733rem;border:1px solid #E2E2E3; border-width: 1px 0;
+    a{@include float(right); color:#0075FF; font-size:1.1968045318998275rem;}
+  }
+  .keyboard-lst{@include float; width:33.333%; height:4.388283283632701rem; border:1px solid #B8B8B8; border-width:0 0 1px 1px;
+    //灰色键
+    &.keyboard-dark{background-color: #D1D4DA;}
+
+    //删除键
+    &.keyboard-delete{background-color: #D1D4DA;
+      .icon-delete{display: block; margin:1.396271953883132rem auto 0 auto; width:1.7952067978497412rem;height:1.396271953883132rem; background: url(../images/icons/max-icon/keyboard-delete.png); background-size: 100% 100%;}
+    }
+
+    //0键
+    &.keyboard-zero{line-height:3.9893484396660917rem;}
+
+    .keyboard-num{display: block;margin-top:0.39893484396660917rem;}
+    .keyboard-char{display: block;margin-top: -0.19946742198330458rem; font-size:0.9574436255198621rem;}
+  }
+}
+
+//上拉加载更多
+ion-infinite-scroll{display: none;}

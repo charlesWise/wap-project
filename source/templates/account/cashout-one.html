@@ -1,0 +1,61 @@
+<ion-view hide-nav-bar="true" class="has-header-view">
+	<div class="header header-light header-common">
+	    <a href="javascript:void(0);" onClick="javascript:history.go(-1);" class="header-icon-1" >
+	      <i class="fa fa-angle-left"></i>
+	    </a>
+	    <div class="header-logo">出金</div>
+  	</div>
+	<ion-content class="business_page">
+		<div id="page-content" class="account-center-content cash-out">
+		    <div id="page-content-scroll"> 
+	  		<form novalidate>
+		     <div class="content-fullscreen no-bottom" style="background-color: rgba(255,255,255,.8); padding: 10px 0px;"> 
+		      <div class="page-profile stepsintro"> 
+		       <table class="small-text color-white" width="100%" border="0" cellspacing="0" cellpadding="0"> 
+		        <tbody> 
+		         <tr> 
+		          <td width="1%"><img src="images/banklogo.png" style="margin: 10px;" /></td>
+		          <td><h4 class="bank">{{userInfo.bankName}}</h4><span class="color-night-light">尾号：{{userInfo.bankAccount.substring(userInfo.bankAccount.length-4,userInfo.bankAccount.length)}}</span></td>
+		         </tr> 
+		        </tbody> 
+		       </table> 
+		      </div> 
+		     </div> 
+		     <div class=""> 
+		      <div class="spacer"></div> 
+		      <div class="cover-field longetext1 no-bottom"> 
+		       <i class="">可转出金额</i> 
+		       <input type="text" required="请输入转出金额" ng-model="cashoutModel.transferAmount" name="transferAmount" placeholder="{{userMoney.withdrawable || '0.00'}}" /> 
+		      </div> 
+		      <!-- <div class="cover-field longetext1 no-bottom"> 
+		       <i class="">输入资金密码</i> 
+		       <input type="password" required="请输入资金密码" ng-model="cashoutModel.cashPwd" name="cashPwd" placeholder="" /> 
+		      </div> -->
+				 <div class="verify-code">
+					 <div class="cover-field longetext no-bottom cover-field verify-input">
+						 <i class="">手机验证码</i>
+						 <input type="text" required="请输入手机验证码" ng-model="cashoutModel.verifyCode" name="verifyCode" placeholder="" />
+					 </div>
+					 <div class="last-column hits-code" ng-if="!isSendCode">
+						 <a href="javascript:void(0);" class="button-grey button-xs button-fullscreen no-bottom" ng-click='sendVerifycode()'>获取验证码</a>
+					 </div>
+					 <div class="last-column hits-code" ng-if="isSendCode">
+						 <a href="javascript:void(0);" class="button-disabled button-xs button-fullscreen no-bottom">{{ countdown }}秒后可重新获取</a>
+					 </div>
+				 </div>
+		     </div>
+		     <div class="spacer half-bottom"></div> 
+		     <div class="content"> 
+		      <p class="color-white">同意《个人网上支付委托协议》</p> 
+		      <a href="javascript:void(0);" class="button-center button-yellow button-fullscreen" ng-click="withdraw()">下一步</a> 
+		     </div> 
+		     <div class="footer footer-light"> 
+		      <div class="footer-content"> 
+		       <a href="javascript:void(0);" class="footer-logo"> </a> 
+		      </div> 
+		     </div> 
+	  		</form>
+		    </div> 
+		  </div>
+	</ion-content>
+</ion-view>

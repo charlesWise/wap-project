@@ -1,0 +1,15 @@
+@charset "UTF-8";
+@mixin backgroundImages($backgroundImage,$imageWidth,$imageHeight,$alignX: center,$alignY: center,$rateX: 100%,$rateY: 100%){
+  @include inline-block; width: $imageWidth; height: $imageHeight; background: url($backgroundImage) no-repeat $alignX $alignY; background-size: $rateX $rateY;
+}
+/**
+ *  $width icon宽度
+ *  $height icon高度
+ */
+@mixin sprite-background($width, $height, $rate:320/640) {
+  background-size: 100% 100%;
+  @extend %inline-block;
+  width: $width*$rate;
+  @include vertical-align;
+  @include height(true, $height*$rate, $height*$rate);
+}

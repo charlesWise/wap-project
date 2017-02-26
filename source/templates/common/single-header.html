@@ -1,0 +1,9 @@
+<div class="bar bar-header bar-light bar-white" ng-show="isWapClient || (isFoundPages && showHead)">
+  <p class="title">{{title}}</p>
+  <div class="buttons nav-menu-right">
+		<a href="{{rlink}}" class="button {{ionSearch}} rlabel ng-hide" ng-show="displayLink">{{rlabel}}</a>
+		<button class="button {{ionSearch}} rlabel ng-hide" ng-click="rclick()" ng-show="displayButton">{{rlabel}}</button>
+		<button ng-if="isHasMenu" class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
+		<button ng-if="isSetup" ng-click="gosetup()" class="button icon ion-ios-gear-outline" style="width: 3.6rem;border:0"></button>
+  </div>
+</div>

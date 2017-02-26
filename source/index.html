@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="fragment" content="!"/>
+    <link rel="shortcut icon" href="images/top-icon.ico" type="image/x-icon" />
+    <title>文金所</title>
+    <link rel="stylesheet" href="font/iconfont.css">
+    <link rel="stylesheet" href="font/font2/iconfont.css">
+    <link rel="stylesheet" href="lib/ionic/css/ionic.min.css">
+    <link rel="stylesheet" href="lib/angular-notify/dist/angular-notify.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/framework.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="lib/iosSelect/iosSelect.css">
+
+    <style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>
+    <script>
+      window.ENV = {
+        "version": "1.0",
+        //环境
+        "env": "dev",
+        "debug": true,
+        //mock 统一拦截规则，可以为一个正则表达式
+        "blockRule": false,
+        "mockEnv": false,
+        "isPageCheck": false, // 检查页面是否登录可进
+      };
+      //是否启动 mock: 只有在 dev 环境下开启 mockEnv 后才启动 mock
+      ENV.useMock = (ENV.env !== 'prd' && ENV.env === 'dev' && ENV.mockEnv);
+    </script>
+    <!-- 本地配置文件 -->
+    <!--<script src="js/config.local.js"></script>-->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+
+    <!-- develop app's js -->
+    <script src="js/mockData.js"></script>
+    <script src="lib/mockjs/dist/mock-min.js"></script>
+    <script src="js/mock.angular.js"></script>
+
+    <!-- for validate tips -->
+    <script src="lib/angular-notify/dist/angular-notify.min.js"></script>
+
+    <script src="js/services/util.js"></script>
+    <script src="js/services/component.js"></script>
+    <script src="js/services/service.js"></script>
+
+    <script src="js/filters/filter.js"></script>
+    <script src="js/directives/directive.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- config files -->
+    <script src="js/config.js"></script>
+    <script src="js/config.api.js"></script>
+    <script src="js/config.permission.js"></script>
+
+    <!-- router of the app -->
+    <script src="js/routers/router.js"></script>
+    <script src="js/routers/account.js"></script>
+    <script src="js/routers/stock.js"></script>
+    <script src="js/routers/trade.js"></script>
+
+    <!-- controllers of the app -->
+    <script src="js/controllers/app.js"></script>
+    <script src="js/controllers/account.js"></script>
+    <script src="js/controllers/stock.js"></script>
+    <script src="js/controllers/trade.js"></script>
+
+    <script src="//cdn.bootcss.com/echarts/3.4.0/echarts.min.js"></script>
+    <script src="//cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+    <script src="lib/iosSelect/iosSelect.js"></script>
+  </head>
+
+  <body ng-app="wjswap">
+    <ion-nav-view>
+      <!-- 防止启动时黑屏 -->
+    <ion-view></ion-view>
+    </ion-nav-view>
+  </body>
+  <script>
+   window.addEventListener(('orientationchange' in window ? 'orientationchange' : 'resize'), (function () { function c() { var d = document.documentElement; var cw = d.clientWidth || 750; d.style.fontSize = (11.75 * (cw / 375)) > 23.5 ? 23.5 + 'px' : (11.75 * (cw / 375)) + 'px'; } c(); return c; })(), false);
+   function showOrhideIcon(id,type){
+     var el = document.getElementById(id);
+     if(type == 'show'){
+       el.setAttribute('data-icon',true);
+     }else{
+       el.setAttribute('data-icon',false);
+     }
+   }
+   </script>
+</html>

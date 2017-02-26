@@ -1,0 +1,62 @@
+<ion-view hide-nav-bar="true" class="has-header-view">
+	<div class="header header-light header-common">
+	    <a href="javascript:void(0)" onClick="javascript:history.go(-1);" class="header-icon-1" >
+	      <i class="fa fa-angle-left"></i>
+	    </a>
+	    <div class="header-logo">专属e账户入金</div>
+  	</div>
+	<ion-content class="business_page">
+		<div id="page-content-scroll" class="account-center-content">
+		   <div class="content-fullscreen no-bottom" style="background-color: rgba(255,255,255,.8); padding: 10px 0px;"> 
+		    <div class="page-profile stepsintro"> 
+		     <table class="small-text color-white center-text" width="100%" border="0" cellspacing="0" cellpadding="0"> 
+		      <tbody> 
+		       <tr> 
+		        <td width="33%"><a href="#" class="scale-hover button-blue social-ball-small">1</a></td> 
+		        <td width="33%"><a href="#" class="scale-hover button-grey social-ball-small">2</a></td> 
+		        <td><a href="#" class="scale-hover button-grey social-ball-small">3</a></td> 
+		       </tr> 
+		       <tr> 
+		        <td class="color-blue-dark">向e账户转账</td> 
+		        <td class="color-night-light">确认金额</td> 
+		        <td class="color-night-light">完成入金</td> 
+		       </tr> 
+		      </tbody> 
+		     </table> 
+		    </div> 
+		    <div class="content no-bottom"> 
+		     <p class="color-white no-bottom small-text" style="background-color: rgba(0,0,0,.2); margin-top: 10px; padding: 10px"> 请您通过网银或者银行柜台。。。。。。</p> 
+		    </div> 
+		   </div> 
+		   <div class=""> 
+		    <div class="spacer"></div> 
+		    <div class="cover-field longetext no-bottom"> 
+		     <i class="">银行帐号</i> 
+		     <input type="text" ng-model="userInfo.bankAccount" readonly="readonly" /> 
+		    </div> 
+		    <div class="cover-field longetext no-bottom"> 
+		     <i class="">收款姓名</i> 
+		     <input type="text" ng-model="userInfo.realName" readonly="readonly" /> 
+		    </div> 
+		    <div class="cover-field longetext no-bottom"> 
+		     <i class="">收款银行</i> 
+		     <input type="text" ng-model="userInfo.bankName" readonly="readonly" /> 
+		    </div> 
+		    <div class="cover-field longetext no-bottom"> 
+		     <i class="">开户支行</i> 
+		     <input type="text" ng-model="userInfo.branchBankName" readonly="readonly" /> 
+		    </div> 
+		   </div> 
+		   <div class="spacer half-bottom"></div> 
+		   <div class="content"> 
+		    <p class="color-white">如已完成转账，请点击“下一步”</p> 
+		    <a ui-sref="app.rechargeTwo" href="javascript:void(0);" class="button-center button-yellow button-fullscreen">下一步</a> 
+		   </div> 
+		   <div class="footer footer-light"> 
+		    <div class="footer-content"> 
+		     <a href="javascript:void(0);" class="footer-logo"> </a> 
+		    </div> 
+		   </div> 
+		  </div>
+	</ion-content>
+</ion-view>

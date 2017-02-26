@@ -1,0 +1,66 @@
+<ion-view hide-nav-bar="true" class="has-header-view">
+	<div class="header header-light">
+		<a href="javascript:void(0)" onClick="javascript:history.go(-1);" class="header-icon-1" >
+			<i class="fa fa-angle-left"></i>
+		</a>
+		<div class="header-logo">绑定银行卡</div>
+	</div>
+    <ion-content class="scroll-content-down">
+	  	<form novalidate>
+	        <div class="cover-page">
+		        <div class="cover-page-content cover-page">
+		            <div class="pageapp-login">
+		                <div class="spacer half-bottom"></div>
+		                <div class="cover-field longetext">
+		                    <i class="">真实姓名</i>
+		                    <input type="text" required="请输入真实姓名" ng-model="bankRegisterModel.clientName" name="clientName" placeholder=""/>
+		                </div>  
+		                              
+		                <div class="cover-field longetext">
+		                    <i class="">身份证号</i>
+		                    <input type="text" required="请输入身份证号" ng-model="bankRegisterModel.certID" name="certID" placeholder=""/>
+		                </div>
+		                
+		                <div class="cover-field longetext">
+		                    <i class="">银行卡号</i>
+		                    <input type="number" required="请输入银行卡号" ng-model="bankRegisterModel.bankAccount" name="bankAccount" placeholder=""/>
+		                </div>
+		                <div class="cover-field longetext">
+							<div class="select-list">
+								<i class="">银行名称</i>
+		                    	<select ng-model="selectedBank.bankCode" ng-change="getSubBankList()" ng-options="bank.bankCode as bank.bankName for bank in banklist"></select>
+							</div>
+						</div>
+
+		                <div class="cover-field longetext">
+							<div class="select-list">
+		                    	<i class="">开户行</i>
+		                    	<select ng-model="selectedSubBank.bankNo" ng-options="bank.bankNo as bank.bankName for bank in subbanklist"></select>
+							</div>
+						</div>
+
+		                <div class="cover-field longetext">
+		                    <i class="">预留手机号</i>
+		                    <input type="tel" required="请输入预留手机号" ng-model="bankRegisterModel.mobiNo" name="mobiNo" placeholder=""/>
+		                </div>
+
+		                <div class="cover-field longetext one-half half-bottom">
+		                    <i class="">手机验证码</i>
+		                    <input type="text" required="请输入手机验证码" ng-model="bankRegisterModel.verifyCode" name="verifyCode" placeholder=""/>
+		                </div>
+
+		                <div class="one-half last-column" ng-if="!isSendCode">
+		                    <a href="javascript:void(0);" class="button-grey button-xs button-fullscreen no-bottom" ng-click='sendVerifycode()'>获取验证码</a>
+		                </div>
+		                <div class="one-half last-column" ng-if="isSendCode">
+		                    <a href="javascript:void(0);" class="button-disabled button-xs button-fullscreen no-bottom">{{ countdown }}秒后可重新获取</a>
+		                </div>
+
+		                <a href="javascript:void(0);" class="pageapp-login-button button button-yellow" ng-click="bindCard()"><i class="fa fa-arrow-right"></i> 立即提交 </a>
+		            </div>
+		        </div>
+		        <div class="overlay"></div>
+		    </div>
+	    </form>
+    </ion-content>
+</ion-view>
